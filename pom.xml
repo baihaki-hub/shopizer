@@ -234,7 +234,7 @@
 				<groupId>org.postgresql</groupId>
 				<artifactId>postgresql</artifactId> 
 				<version>${postgresql.version}</version>
-				<scope>runtime</scope>
+				<!-- <scope>runtime</scope> -->
 			</dependency>
 
 
@@ -503,18 +503,23 @@
 			<version>${elasticsearch.version}</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 
+		<!--
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+		-->
 
 		<!-- oracle -->
 		<!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc8</artifactId> 
 			<version>${oracle.version}</version> </dependency> -->
 
 
-		<!-- postgres <dependency> <groupId>org.postgresql</groupId> <artifactId>postgresql</artifactId> 
-			</dependency> -->
+		<!-- postgres -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId> 
+		</dependency>
 
 
 	</dependencies>
