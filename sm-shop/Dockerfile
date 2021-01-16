@@ -1,7 +1,7 @@
-FROM openjdk:8
-COPY ./sm-shop/target/ROOT.war /usr/src/project/
-ADD ./sm-shop/SALESMANAGER.h2.db /usr/src/project/
-COPY ./sm-shop/files/ /usr/src/project/files/
+FROM openjdk:8-jdk-alpine
+COPY sm-shop/target/ROOT.war /usr/src/project/
+ADD sm-shop/SALESMANAGER.h2.db /usr/src/project/
+COPY sm-shop/files/ /usr/src/project/files/
 WORKDIR /usr/src/project
 
 FROM tomcat:9.0.10-jre8
