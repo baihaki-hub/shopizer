@@ -1,11 +1,12 @@
 FROM openjdk:8-jdk-alpine
-RUN ls
-RUN ls .
+RUN ls /usr/src/project/
+RUN ls /usr/src/project/sm-shop
+RUN ls /usr/src/project/sm-shop/target
 COPY . /usr/src/project/
 RUN ls /usr/src/project/
-COPY ./sm-shop/target/ROOT.war /usr/src/project/
-ADD ./sm-shop/target/SALESMANAGER.h2.db /usr/src/project/
-COPY ./sm-shop/target/files/ /usr/src/project/files/
+#COPY ./sm-shop/target/ROOT.war /usr/src/project/
+#ADD ./sm-shop/target/SALESMANAGER.h2.db /usr/src/project/
+#COPY ./sm-shop/target/files/ /usr/src/project/files/
 WORKDIR /usr/src/project
 
 FROM tomcat:9.0.10-jre8
