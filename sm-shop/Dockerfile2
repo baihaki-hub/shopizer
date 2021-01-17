@@ -1,14 +1,14 @@
 FROM openjdk:8-jdk-alpine
+RUN ls .
+COPY . /usr/src/project/
+RUN ls /usr/src/project/
+RUN ls /usr/src/project/sm-shop
 RUN chgrp -R 0 /usr/src/project
 RUN chmod -R g+rw /usr/src/project
 RUN find /usr/src/project -type d -exec chmod g+x {} +
 RUN chgrp -R 0 /usr/local/tomcat
 RUN chmod -R g+rw /usr/local/tomcat
 RUN find /usr/local/tomcat -type d -exec chmod g+x {} +
-RUN ls .
-COPY . /usr/src/project/
-RUN ls /usr/src/project/
-RUN ls /usr/src/project/sm-shop
 #COPY ./sm-shop/target/ROOT.war /usr/src/project/
 #ADD ./sm-shop/target/SALESMANAGER.h2.db /usr/src/project/
 #COPY ./sm-shop/target/files/ /usr/src/project/files/
