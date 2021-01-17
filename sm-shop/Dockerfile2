@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 RUN adduser -S spring -G wheel
-USER spring
+USER spring:wheel
 RUN ls
 RUN ls .
 COPY . /usr/src/project/
