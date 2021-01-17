@@ -8,7 +8,7 @@ RUN ls /usr/src/project/sm-shop
 #ADD ./sm-shop/target/SALESMANAGER.h2.db /usr/src/project/
 #COPY ./sm-shop/target/files/ /usr/src/project/files/
 WORKDIR /usr/src/project
-RUN ./mvn install
+RUN ./mvnw install
 RUN ls /usr/src/project/sm-shop/target
 
 FROM tomcat:9.0.10-jre8
