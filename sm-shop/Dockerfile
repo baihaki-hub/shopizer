@@ -1,10 +1,6 @@
 FROM openjdk:8-jdk-alpine
 RUN ls
 RUN ls .
-RUN ls /var/
-RUN ls /var/lib/
-RUN ls /var/lib/docker/
-RUN ls /var/lib/docker/tmp/
 COPY . /usr/src/project/
 RUN ls /usr/src/project/
 RUN ls /usr/src/project/sm-shop
