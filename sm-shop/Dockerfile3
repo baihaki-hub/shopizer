@@ -1,0 +1,20 @@
+FROM openjdk:8-jdk-alpine
+RUN ls .
+COPY . /usr/src/project/
+RUN ls /usr/src/project/
+RUN ls /usr/src/project/sm-shop
+RUN chgrp -R 0 /usr/src/project
+RUN chmod -R g+rw /usr/src/project
+RUN find /usr/src/project -type d -exec chmod g+x {} +
+#COPY ./sm-shop/target/ROOT.war /usr/src/project/
+#ADD ./sm-shop/target/SALESMANAGER.h2.db /usr/src/project/
+#COPY ./sm-shop/target/files/ /usr/src/project/files/
+WORKDIR /usr/src/project
+RUN ./mvnw install
+RUN ls /usr/src/project/sm-shop/target
+
+WORKDIR /usr/src/project/sm-shop
+ENV JAVA_OPTS="-Xmx1024m"
+CMD ["java", "-jar", "target/ROOT.jar"]
+
+EXPOSE 8080
