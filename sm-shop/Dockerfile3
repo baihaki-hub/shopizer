@@ -14,7 +14,7 @@ RUN ./mvnw install
 RUN ls /usr/src/project/sm-shop/target
 
 WORKDIR /usr/src/project/sm-shop
-ENV JAVA_OPTS="-Xmx1024m"
+ENV JAVA_OPTS="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"
 CMD ["java", "-jar", "target/ROOT.jar"]
 
 EXPOSE 8080
