@@ -1,5 +1,5 @@
 FROM openjdk:8-jdk-alpine
-ENV JAVA_OPTS="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"
+ENV JAVA_OPTS="-Xmx750m -XX:+HeapDumpOnOutOfMemoryError"
 RUN ls .
 COPY . /usr/src/project/
 RUN ls /usr/src/project/
@@ -15,7 +15,7 @@ RUN ./mvnw install
 RUN ls /usr/src/project/sm-shop/target
 
 WORKDIR /usr/src/project/sm-shop
-ENV JAVA_OPTS="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"
-CMD ["java", "-jar", "target/ROOT.jar"]
+ENV JAVA_OPTS="-Xmx750m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90"
+CMD ["java", "-jar", "target/ROOT.jar", "-Xmx750m", "-XX:+HeapDumpOnOutOfMemoryError", "-XX:+UseParallelGC", "-XX:MinHeapFreeRatio=5", "-XX:MaxHeapFreeRatio=10", "-XX:GCTimeRatio=4", "-XX:AdaptiveSizePolicyWeight=90"]
 
 EXPOSE 8080
